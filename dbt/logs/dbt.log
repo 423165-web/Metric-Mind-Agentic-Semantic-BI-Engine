@@ -1,0 +1,134 @@
+[0m16:56:35.406635 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019F67C108F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019F6A5CE9C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019F687E78F0>]}
+
+
+============================== 16:56:35.470516 | 71fc3989-7156-4e89-82f9-83a5a17e0d4e ==============================
+[0m16:56:35.470516 [info ] [MainThread]: Running with dbt=1.12.0
+[0m16:56:35.470516 [debug] [MainThread]: running dbt with arguments {'maximum_seed_size_mib': '1', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\KARTHIK YADAV\\.dbt', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init metricmind', 'log_path': 'logs'}
+[0m16:56:35.812988 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\KARTHIK YADAV\.dbt
+[0m16:56:35.880903 [debug] [MainThread]: Starter project path: C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\include\starter_project
+[0m16:56:36.063424 [info ] [MainThread]: Setting up your profile.
+[0m16:59:20.809233 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m16:59:20.809233 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m16:59:20.809233 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m17:04:02.575376 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+
+[0m17:04:02.582450 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\cli\requires.py", line 190, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\cli\requires.py", line 136, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\cli\main.py", line 503, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\task\init.py", line 360, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\task\init.py", line 264, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\task\init.py", line 181, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\task\init.py", line 165, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\task\init.py", line 131, in generate_target_from_input
+    target[key] = click.prompt(
+                  ^^^^^^^^^^^^^
+  File "C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\Lib\site-packages\click\termui.py", line 218, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\Lib\site-packages\click\termui.py", line 201, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m17:04:02.586489 [debug] [MainThread]: Command `dbt init` failed at 17:04:02.586489 after 448.16 seconds
+[0m17:04:02.587719 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019F656FB380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019F7FBC78C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019F035769C0>]}
+[0m17:04:02.587719 [debug] [MainThread]: Flushing usage events
+[0m17:04:04.646178 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:04:14.092090 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BC526A80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BC527E00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BC525B50>]}
+
+
+============================== 17:04:14.098000 | d7a5a0af-a59e-45a5-98d5-4cd9919fff66 ==============================
+[0m17:04:14.098000 [info ] [MainThread]: Running with dbt=1.12.0
+[0m17:04:14.098000 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'maximum_seed_size_mib': '1', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\KARTHIK YADAV\\.dbt', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'invocation_command': 'dbt init metricmind', 'use_experimental_parser': 'False', 'use_colors': 'True', 'log_path': 'logs'}
+[0m17:04:14.146260 [info ] [MainThread]: A project called metricmind already exists here.
+[0m17:04:14.148272 [debug] [MainThread]: Command `dbt init` succeeded at 17:04:14.148272 after 0.50 seconds
+[0m17:04:14.148272 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BA8F0380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BA8F1670>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BC352720>]}
+[0m17:04:14.150288 [debug] [MainThread]: Flushing usage events
+[0m17:04:16.016100 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:18:09.954673 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018D952CA480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018D9318DA60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018D93728EF0>]}
+
+
+============================== 19:18:09.986421 | f6614a76-1c3c-494d-95c2-558db7ae2fb5 ==============================
+[0m19:18:09.986421 [info ] [MainThread]: Running with dbt=1.12.0
+[0m19:18:09.986421 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'maximum_seed_size_mib': '1', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\KARTHIK YADAV\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'invocation_command': 'dbt debug', 'use_experimental_parser': 'False', 'use_colors': 'True', 'log_path': 'logs'}
+[0m19:18:10.151921 [info ] [MainThread]: dbt version: 1.12.0
+[0m19:18:10.151921 [info ] [MainThread]: python version: 3.12.8
+[0m19:18:10.151921 [info ] [MainThread]: python path: C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\python.exe
+[0m19:18:10.163731 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m19:18:10.166212 [info ] [MainThread]: Using profiles dir at C:\Users\KARTHIK YADAV\.dbt
+[0m19:18:10.167965 [info ] [MainThread]: Using profiles.yml file at C:\Users\KARTHIK YADAV\.dbt\profiles.yml
+[0m19:18:10.168900 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\KARTHIK YADAV\Desktop\Common\Timepass\Metric_Mind_Agentic_Semantic_BI_Engine\dbt\dbt_project.yml
+[0m19:18:10.170925 [info ] [MainThread]: Configuration:
+[0m19:18:10.170925 [info ] [MainThread]:   profiles.yml file [[31mERROR not found[0m]
+[0m19:18:10.173100 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m19:18:10.175728 [info ] [MainThread]: Required dependencies:
+[0m19:18:10.175728 [debug] [MainThread]: Executing "git --help"
+[0m19:18:10.303786 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m19:18:10.303786 [debug] [MainThread]: STDERR: "b''"
+[0m19:18:10.303786 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m19:18:10.303786 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m19:18:10.303786 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m19:18:10.303786 [info ] [MainThread]: dbt looked for a profiles.yml file in C:\Users\KARTHIK YADAV\.dbt\profiles.yml, but did
+not find one. For more information on configuring your profile, consult the
+documentation:
+
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m19:18:10.303786 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\KARTHIK YADAV\Desktop\Common\Timepass\Metric_Mind_Agentic_Semantic_BI_Engine\dbt\dbt_project.yml> not found
+
+[0m19:18:10.303786 [debug] [MainThread]: Command `dbt debug` failed at 19:18:10.303786 after 0.81 seconds
+[0m19:18:10.303786 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018D92C70A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018D92C72D20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018D92800AA0>]}
+[0m19:18:10.303786 [debug] [MainThread]: Flushing usage events
+[0m19:18:13.747056 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:35:18.573055 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000161BCBD1400>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000161C025ED80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000161C025DA60>]}
+
+
+============================== 19:35:18.589245 | bed20343-172c-4ad1-8015-3c9c7c75d1ea ==============================
+[0m19:35:18.589245 [info ] [MainThread]: Running with dbt=1.12.0
+[0m19:35:18.589245 [debug] [MainThread]: running dbt with arguments {'maximum_seed_size_mib': '1', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\KARTHIK YADAV\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt debug', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'log_path': 'logs'}
+[0m19:35:18.634413 [info ] [MainThread]: dbt version: 1.12.0
+[0m19:35:18.634413 [info ] [MainThread]: python version: 3.12.8
+[0m19:35:18.634413 [info ] [MainThread]: python path: C:\Users\KARTHIK YADAV\AppData\Local\Programs\Python\Python312\python.exe
+[0m19:35:18.640612 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m19:35:18.640927 [info ] [MainThread]: Using profiles dir at C:\Users\KARTHIK YADAV\.dbt
+[0m19:35:18.640927 [info ] [MainThread]: Using profiles.yml file at C:\Users\KARTHIK YADAV\.dbt\profiles.yml
+[0m19:35:18.640927 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\KARTHIK YADAV\Desktop\Common\Timepass\Metric_Mind_Agentic_Semantic_BI_Engine\dbt\dbt_project.yml
+[0m19:35:18.640927 [info ] [MainThread]: Configuration:
+[0m19:35:18.640927 [info ] [MainThread]:   profiles.yml file [[31mERROR not found[0m]
+[0m19:35:18.640927 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m19:35:18.645694 [info ] [MainThread]: Required dependencies:
+[0m19:35:18.645694 [debug] [MainThread]: Executing "git --help"
+[0m19:35:18.734547 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m19:35:18.734547 [debug] [MainThread]: STDERR: "b''"
+[0m19:35:18.734547 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m19:35:18.734547 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m19:35:18.737729 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m19:35:18.738827 [info ] [MainThread]: dbt looked for a profiles.yml file in C:\Users\KARTHIK YADAV\.dbt\profiles.yml, but did
+not find one. For more information on configuring your profile, consult the
+documentation:
+
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m19:35:18.738827 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\KARTHIK YADAV\Desktop\Common\Timepass\Metric_Mind_Agentic_Semantic_BI_Engine\dbt\dbt_project.yml> not found
+
+[0m19:35:18.739747 [debug] [MainThread]: Command `dbt debug` failed at 19:35:18.739747 after 0.47 seconds
+[0m19:35:18.739747 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000161BCBD1400>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000161C0AE33E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000161C0498E60>]}
+[0m19:35:18.740774 [debug] [MainThread]: Flushing usage events
+[0m19:35:20.261388 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,0 +1,16 @@
+SELECT 
+    ORDER_ID,
+    CUSTOMER_ID,
+    EMPLOYEE_ID,
+    ORDER_DATE,
+    REQUIRED_DATE,
+    SHIPPED_DATE,
+    SHIP_VIA,
+    FREIGHT,
+    SHIP_NAME,
+    SHIP_CITY,
+    SHIP_REGION,
+    SHIP_COUNTRY,
+    ORDER_STATUS,
+    PAYMENT_METHOD
+FROM {{ source('raw', 'orders') }}
