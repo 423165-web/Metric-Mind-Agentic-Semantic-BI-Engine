@@ -1,33 +1,99 @@
 version: 2
 
 models:
-  - name: stg_customers
+
+  - name: dim_customers
+    description: "Dimension table containing customer details."
+
     columns:
+
       - name: customer_id
+        description: "Unique identifier for each customer."
         tests:
           - unique
           - not_null
 
-  - name: stg_products
-    columns:
-      - name: product_id
-        tests:
-          - unique
-          - not_null
 
-  - name: stg_orders
-    columns:
-      - name: order_id
-        tests:
-          - unique
-          - not_null
+  - name: dim_products
+    description: "Dimension table containing product details."
 
-  - name: stg_order_details
     columns:
-      - name: order_id
-        tests:
-          - not_null
 
       - name: product_id
+        description: "Unique identifier for each product."
+        tests:
+          - unique
+          - not_null
+
+
+  - name: dim_employees
+    description: "Dimension table containing employee details."
+
+    columns:
+
+      - name: employee_id
+        description: "Unique identifier for each employee."
+        tests:
+          - unique
+          - not_null
+
+
+  - name: dim_date
+    description: "Date dimension for time-based analysis."
+
+    columns:
+
+      - name: date_key
+        description: "Surrogate key in YYYYMMDD format."
+        tests:
+          - unique
+          - not_null
+
+      - name: full_date
+        description: "Calendar date."
         tests:
           - not_null
+
+
+  - name: fct_sales
+    description: "Fact table containing sales transactions."
+
+    columns:
+
+      - name: order_id
+        description: "Unique order identifier."
+        tests:
+          - not_null
+
+
+     
+
+
+      - name: product_id
+        description: "Product sold in the transaction."
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_id
+
+
+      - name: employee_id
+        description: "Employee responsible for the order."
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_employees')
+                field: employee_id
+
+
+      - name: date_key
+        description: "Date dimension key."
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key

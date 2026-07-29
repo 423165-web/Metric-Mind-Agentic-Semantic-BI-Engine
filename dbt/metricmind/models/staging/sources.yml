@@ -6,9 +6,53 @@ sources:
     schema: RAW
 
     tables:
+
       - name: customers
-      - name: employees
-      - name: categories
-      - name: products
+        columns:
+          - name: customer_id
+            tests:
+              - unique
+              - not_null
+
+
       - name: orders
+        columns:
+          - name: order_id
+            tests:
+              - unique
+              - not_null
+
+
       - name: order_details
+        columns:
+          - name: order_id
+            tests:
+              - not_null
+
+          - name: product_id
+            tests:
+              - not_null
+
+
+      - name: employees
+        columns:
+          - name: employee_id
+            tests:
+              - unique
+              - not_null
+
+
+      - name: products
+        columns:
+          - name: product_id
+            tests:
+              - unique
+              - not_null
+
+
+      - name: categories
+        columns:
+          - name: category_id
+            tests:
+              - unique
+              - not_null
