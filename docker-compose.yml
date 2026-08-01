@@ -2,12 +2,9 @@ services:
   cube:
     image: cubejs/cube:latest
     container_name: metricmind-cube
-
     ports:
       - "4000:4000"
-
     env_file:
       - ./cube/metricmind-cube/.env
-
     volumes:
-      - ./cube/metricmind-cube:/cube/conf
+      - ./cube/metricmind-cube/model:/cube/conf/model

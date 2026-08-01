@@ -1,0 +1,211 @@
+cubes:
+  - name: sales
+    title: Sales
+    description: Sales semantic layer with time, geography, revenue and cost metrics.
+
+    sql: |
+      SELECT
+        CONCAT(f.order_id, '-', f.product_id) AS sales_row_id,
+        f.order_id,
+        f.customer_id,
+        f.product_id,
+        f.date_key,
+        f.quantity,
+        f.unit_price,
+        f.discount,
+
+        f.sales_amount AS revenue_amount,
+        (f.quantity * f.unit_price * f.discount) AS cost_amount,
+
+        d.full_date AS order_date,
+        d.day_of_month,
+        d.day_of_week,
+        d.day_name,
+        d.month_number,
+        d.month_name,
+        d.quarter,
+        d.year,
+        d.week_of_year,
+        d.is_weekend,
+
+        c.country,
+        c.city
+
+      FROM METRICMIND.STAGING_MARTS.FCT_SALES AS f
+
+      LEFT JOIN METRICMIND.STAGING_MARTS.DIM_DATE AS d
+        ON f.date_key = d.date_key
+
+      LEFT JOIN METRICMIND.STAGING_MARTS.DIM_CUSTOMERS AS c
+        ON f.customer_id = c.customer_id
+
+    measures:
+
+      - name: revenue
+        title: Revenue
+        description: Total sales revenue.
+        sql: revenue_amount
+        type: sum
+        format: currency
+        currency: USD
+
+      - name: cost
+        title: Cost
+        description: Calculated cost amount.
+        sql: cost_amount
+        type: sum
+        format: currency
+        currency: USD
+
+      - name: profit
+        title: Profit
+        description: Revenue minus cost.
+        sql: "{revenue} - {cost}"
+        type: number
+        format: currency
+        currency: USD
+
+      - name: total_orders
+        title: Total Orders
+        sql: order_id
+        type: countDistinct
+
+      - name: total_rows
+        title: Total Sales Rows
+        type: count
+
+      - name: total_quantity
+        title: Total Quantity Sold
+        sql: quantity
+        type: sum
+
+      - name: avg_order_value
+        title: Average Order Value
+        sql: revenue_amount
+        type: avg
+        format: currency
+        currency: USD
+
+      - name: max_sale
+        title: Maximum Sale
+        sql: revenue_amount
+        type: max
+        format: currency
+        currency: USD
+
+      - name: min_sale
+        title: Minimum Sale
+        sql: revenue_amount
+        type: min
+        format: currency
+        currency: USD
+
+    dimensions:
+
+      - name: id
+        title: Sales Row ID
+        sql: sales_row_id
+        type: string
+        primary_key: true
+        public: false
+
+      - name: order_id
+        title: Order ID
+        sql: order_id
+        type: number
+
+      - name: customer_id
+        title: Customer ID
+        sql: customer_id
+        type: number
+        public: false
+
+      - name: product_id
+        title: Product ID
+        sql: product_id
+        type: number
+        public: false
+
+      - name: order_date
+        title: Order Date
+        sql: order_date
+        type: time
+
+      - name: year
+        title: Year
+        sql: year
+        type: number
+
+      - name: quarter
+        title: Quarter
+        sql: quarter
+        type: number
+
+      - name: month_number
+        title: Month Number
+        sql: month_number
+        type: number
+
+      - name: month_name
+        title: Month
+        sql: month_name
+        type: string
+
+      - name: week_of_year
+        title: Week Of Year
+        sql: week_of_year
+        type: number
+
+      - name: day_of_week
+        title: Day Of Week
+        sql: day_of_week
+        type: number
+
+      - name: day_name
+        title: Day Name
+        sql: day_name
+        type: string
+
+      - name: is_weekend
+        title: Is Weekend
+        sql: is_weekend
+        type: boolean
+
+      - name: country
+        title: Country
+        sql: country
+        type: string
+
+      - name: city
+        title: City
+        sql: city
+        type: string
+
+      - name: geography
+        title: Geography
+        sql: "CONCAT(country, ' / ', city)"
+        type: string
+
+    segments:
+
+      - name: weekend_sales
+        title: Weekend Sales
+        sql: "{CUBE}.is_weekend = TRUE"
+
+      - name: weekday_sales
+        title: Weekday Sales
+        sql: "{CUBE}.is_weekend = FALSE"
+
+    pre_aggregations:
+
+      - name: monthly_revenue
+
+        measures:
+          - revenue
+
+        dimensions:
+          - country
+
+        time_dimension: order_date
+
+        granularity: month
