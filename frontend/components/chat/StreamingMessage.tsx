@@ -1,7 +1,13 @@
-import React from 'react';
+interface Props {
+  text: string;
+}
 
-const StreamingMessage: React.FC = () => {
-  return <div>Streaming Message</div>;
-};
-
-export default StreamingMessage;
+export default function StreamingMessage({
+  text,
+}: Props) {
+  return (
+    <p className="whitespace-pre-wrap leading-7">
+      {text}
+    </p>
+  );
+}

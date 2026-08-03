@@ -1,7 +1,9 @@
-import ChatWindow from "../components/chat/ChatWindow";
+import ChatWindow from "@/components/chat/ChatWindow";
 
 export default function Home() {
   return (
-    <ChatWindow />
+    <main className="h-screen">
+      <ChatWindow />
+    </main>
   );
 }

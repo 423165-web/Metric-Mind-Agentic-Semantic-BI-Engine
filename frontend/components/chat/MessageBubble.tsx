@@ -1,7 +1,27 @@
-import React from 'react';
+import { Message } from "@/types/chat";
 
-const MessageBubble: React.FC = () => {
-  return <div>Message Bubble</div>;
-};
+interface Props {
+  message: Message;
+}
 
-export default MessageBubble;
+export default function MessageBubble({ message }: Props) {
+  const isUser = message.role === "user";
+
+  return (
+    <div
+      className={`flex w-full ${
+        isUser ? "justify-end" : "justify-start"
+      } mb-4`}
+    >
+      <div
+        className={`max-w-3xl rounded-2xl px-5 py-3 shadow ${
+          isUser
+            ? "bg-blue-600 text-white"
+            : "bg-white text-gray-800"
+        }`}
+      >
+        <p className="whitespace-pre-wrap">{message.content}</p>
+      </div>
+    </div>
+  );
+}
